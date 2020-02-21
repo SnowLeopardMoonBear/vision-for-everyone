@@ -1,32 +1,43 @@
 <template>
-  <div class="container">
-    <div class="row vertical-centre justify-content-center mt-50">
-      <div class="col-md-6 mx-auto">
-        <CreateTodo></CreateTodo>
-      </div>
-    </div>
-  </div>
+  <v-app>
+    <v-app-bar app color="green lighten-1" dark>
+      <v-btn
+        text
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+      >
+        <span class="mr-2 body-1">홈으로</span>
+      </v-btn>
+      <v-toolbar-title>
+        <span class="font-weight-bold headline">kiWE</span>
+        <span class="font-weight-light headline"></span>
+      </v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn
+        text
+        href="https://github.com/vuetifyjs/vuetify/releases/latest"
+        target="_blank"
+      >
+        <span class="mr-2 body-1">마이페이지</span>
+      </v-btn>
+    </v-app-bar>
+
+    <v-content>
+      <HelloWorld/>
+    </v-content>
+  </v-app>
 </template>
 
 <script>
-import CreateTodo from "./components/CreateTodo.vue";
+import HelloWorld from './components/HelloWorld';
 
 export default {
-  name: "app",
-  components: { CreateTodo }
+  name: 'App',
+  components: {
+    HelloWorld,
+  },
+  data: () => ({
+    //
+  }),
 };
 </script>
-
-<style lang="scss">
-@import "node_modules/bootstrap/scss/bootstrap";
-@import "node_modules/bootstrap-vue/src/index.scss";
-.vertical-centre {
-  min-height: 100%;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-}
-.todo__row {
-  width: 400px;
-}
-</style>

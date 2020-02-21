@@ -8,9 +8,10 @@
           class="form-control"
           @keypress="typing=true"
           placeholder="DF communication"
-          v-model="this.$store.state.msg"
+          v-model="msg"
           @keyup.enter="dfCom()"
         />
+        <div v-for="chat in chats" v-bind:key="chat">{{chat}}</div>
         <small class="form-text text-muted" v-show="typing">Hit enter to save</small>
       </div>
     </form>
@@ -23,19 +24,20 @@ export default {
   data() {
     return {
       name: "",
-      msg: "4 dollars!",
+      msg: "component message",
+      chats: [],
       typing: false
     };
   },
   mounted() {
-    this.$socket.on("receive chat", function(dar){this.msg = dar}); // 소켓 통해 들으려는데 잘 안 되네...
+    this.$socket.on("receive chat", data => this.chats.push(data))
   },
   methods: {
     dfCom() {
-      var sendMsg = this.$store.state.msg
-      this.$socket.emit("send chat", sendMsg) // 이걸로 소켓연결
-      this.$store.state.msg = ''
-    },
+      this.chats.push(this.msg);
+      this.$socket.emit("send chat", this.msg); // 이걸로 소켓연결
+      this.msg = '';
+    }
   }
 };
 </script>
