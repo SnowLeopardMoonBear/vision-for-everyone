@@ -74,7 +74,7 @@
                 <v-divider></v-divider>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn color="primary" text @click="dialog = false">
+                  <v-btn color="primary" text>
                     닫기
                   </v-btn>
                 </v-card-actions>
@@ -109,13 +109,14 @@ export default {
       feed: [
         {
           id: 1,
-          author: "챗봇",
+          author: "df봇",
           contents: "이보시오",
           date: "16:30"
         }
       ],
-      message: [
-      ],
+      message: {
+
+      },
       yesorno: ["yes", "no"],
       menu: "짜장면: 사천원, 짬뽕: 오천원, 탕수육: 만원",
       event: "앗! 짜장면, 신발보다 싸다!",
@@ -149,9 +150,13 @@ export default {
   color: white;
 }
 
-// above the following import you can override default values of variables like $primary
-@import "node_modules/basic-vue-chat/src/assets/scss/main.scss";
+
 $primary: #00cc33;
 $secondary: #663322;
-$window-height: 100%;
+$window-height: 50%;
+
+// above the following import you can override default values of variables like $primary
+// @import "node_modules/basic-vue-chat/src/assets/scss/main.scss";
+// 왜 run serve 한 뒤에 import를 주석달았다 해제하면 스타일 반영되지? 그리고 새로고침하면 또 안됨 ㄷ
+// 게다가 오버라이드 반영될 땐 챗 늘수록 계속 길이 늘어남.
 </style>
