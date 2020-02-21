@@ -7,16 +7,8 @@
           type="text"
           class="form-control"
           @keypress="typing=true"
-          placeholder="What do you want to do?"
-          v-model="name"
-          @keyup.enter="addTodo($event)"
-        />
-        <input
-          type="text"
-          class="form-control"
-          @keypress="typing=true"
           placeholder="DF communication"
-          v-model="msg"
+          v-model="this.$store.state.msg"
           @keyup.enter="dfCom()"
         />
         <small class="form-text text-muted" v-show="typing">Hit enter to save</small>
@@ -40,9 +32,9 @@ export default {
   },
   methods: {
     dfCom() {
-      var msg = this.msg
-      this.$socket.emit("send chat", this.msg) // 이걸로 소켓연결
-      this.msg = ''
+      var sendMsg = this.$store.state.msg
+      this.$socket.emit("send chat", sendMsg) // 이걸로 소켓연결
+      this.$store.state.msg = ''
     },
   }
 };
