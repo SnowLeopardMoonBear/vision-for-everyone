@@ -34,7 +34,7 @@
                   class="headline grey lighten-2"
                   primary-title
                 >
-                  고자킹 메뉴
+                  메뉴
                 </v-card-title>
 
                 <v-card-text>
@@ -88,9 +88,7 @@
                 <v-card-text style="font-size:20px;">
                   {{event}}
                 </v-card-text>
-
               <v-divider></v-divider>
-
                 <v-card-actions>
                   <v-spacer></v-spacer>
                   <v-btn
@@ -111,31 +109,6 @@
           </v-col>
         </v-row>
       </v-container>
-      <v-flex mb-4>
-
-      </v-flex>
-      <!-- <v-container height="30%" class="grey lighten-3" style="background-image: url('src/assets/green_lighten_4.jpg');">
-        <v-container class="green lighten-4">
-          <v-row>
-            <template v-for="entity in menu">
-              <v-col v-if="flag" :key="entity">
-                <v-btn class="brown lighten-2" :elevation='10' height="100px" width="100%">
-                  <span class='title font-weight-bold whitetext'>{{entity}}</span>
-                </v-btn>
-              </v-col>
-            </template>
-          </v-row>
-          <v-row>
-            <template v-for="n in 3">
-              <v-col :key="n">
-                <v-btn color="brown lighten-2" :elevation='10' height="100px" width="100%">
-                  <span class='title font-weight-bold whitetext'>변동버튼 {{n+3}}</span>
-                </v-btn>
-              </v-col>
-            </template>
-          </v-row>
-        </v-container>
-      </v-container> -->
     </v-layout>
     <BasicVueChat  
       :title="'kiWE'" 
@@ -161,52 +134,15 @@ export default {
           contents: '이보시오',
           date: '16:30'
         },
-        {
-          id: 2,
-          author: '챗봇',
-          contents: '의사양반',
-          date: '17:00'
-        },
-        {
-          id: 0,
-          author: 'Person2',
-          contents: '내가 고자라니',
-          date: '17:10'
-        }
       ],
-      yesorno: ['yes', 'no'],
-      menu: '김두한세트: 4$, 심영밀: 3$',
-      event: '앗! 햄버거, 신발보다 싸다!',
-      flag: false
+      menu: '짜장:3000원, 짬뽕:4000원, 탕수육:6000원',
+      event: '앗! 짜장면, 신발보다 싸다!'
     }
   },
   methods: {
-    test: () => {
-      this.flag = !(this.flag)
-    },
     send: () => {
       // 여기에 버튼 누르면 버튼 내용을 보내는 함수를 추가.
-    },
-    menu: () => {
-      // 여기에 DB에서 메뉴 불러오는 함수 추가
-    },
-    yes: () => {
-      // 여기에 예스 보내기
-      var yesmsg = 'yes' //이건 그냥 예시일 뿐이며, DF 포맷에 맞게 JSON 짜고 답변 기다리기
-    },
-    no: () => {
-      // no 보내기
-    },
-    events: () => {
-      // DB에서 이벤트 조회
-    },
-    call: () => {
-      // 종업원 부르기(구현방법은 미정)
-    },
-    identify: () => {
-      // 주어진 메시지 스트링 보고 어떻게 버튼 띄워줄지 파악하기
     }
-    
   }
 };
 </script>

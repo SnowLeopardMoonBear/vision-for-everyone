@@ -25,8 +25,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
-import bus from "./../bus.js";
+// import axios from "axios";
 
 export default {
   data() {
@@ -37,39 +36,13 @@ export default {
     };
   },
   mounted() {
-    this.$socket.on("receive chat", function(dar){this.msg = dar});
+    this.$socket.on("receive chat", function(dar){this.msg = dar}); // 소켓 통해 들으려는데 잘 안 되네...
   },
   methods: {
-    addTodo(event) {
-      if (event) event.preventDefault();
-      let todo = {
-        name: this.name,
-        done: false //false by default
-      };
-      console.log(todo);
-      this.$http
-        .post("/", todo)
-        .then(response => {
-          this.clearTodo();
-          this.refreshTodo();
-          this.typing = false;
-        })
-        .catch(error => {
-          console.log(error);
-        });
-    },
     dfCom() {
       var msg = this.msg
-      this.$socket.emit("send chat", this.msg)
+      this.$socket.emit("send chat", this.msg) // 이걸로 소켓연결
       this.msg = ''
-      //여기에 소켓연결
-    },
-    clearTodo() {
-      this.name = "";
-    },
-
-    refreshTodo() {
-      bus.$emit("refreshTodo");
     },
   }
 };

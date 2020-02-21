@@ -9,30 +9,25 @@ const uuid = require('uuid');
  */
 
 module.exports = async function runSample(textQuery) { //async await 함수 사용 모듈. 
+  //프로젝트,세션 ID
   const projectId = 'vision-for-everyone-rnddgb'
-  // A unique identifier for the given session
   const sessionId = '234234234'
-
-  // 새로운 세션 열기. 인증 정보 포함하는 DF 객체 생성하고, DF 객체 메서드로 통신시작
+  // 새로운 세션 열기. 인증 정보 포함하는 DF 객체 생성, DF 객체 메서드로 통신 시작
   const sessionClient = new dialogflow.SessionsClient({
     keyFilename: './vision-for-everyone-rnddgb-55a2640e90e8.json'
   });
-
+  // 빈 쿼리는 받지 않는닷!!
   if (!textQuery || !textQuery.length) {
     return;
   }
-
-  const sessionPath = sessionClient.sessionPath(projectId, sessionId); //df모듈 찾아보기. 
-
-  // The text query request. 이런 형JSON 식으로 df단에 메시지 전송!
-  
+  // sessionClient의 Path 정보를 sessionPath에 넣는다
+  const sessionPath = sessionClient.sessionPath(projectId, sessionId);
+  // 이런 형식의 JSON으로 df단에 메시지 전송!
   const request = {
     session: sessionPath,
     queryInput: {
       text: {
-        // The query to send to the dialogflow agent
-        text: textQuery, // 모듈에서 입력받은 textQuery를 request.queryInput.text.text에 넣는다.
-        // The language used by the client (en-US)
+        text: textQuery, // 모듈에서 입력받은 textQuery를 request.queryInput.text.text에 넣어 전송한다.
         languageCode: 'en-US',
       },
     },
