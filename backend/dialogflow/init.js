@@ -37,13 +37,13 @@ module.exports = async function runSample(textQuery) { //async await 함수 사�
   const responses = await sessionClient.detectIntent(request); //DF에서 request 받아오길 기다렸다 response에 저장
   // console.log('Detected intent');
   const result = responses[0].queryResult; // 결과메시지 반환. 메시지 포맷 확인 필요!
-  // console.log(`  Query: ${result.queryText}`);
-  // console.log(`  Response: ${result.fulfillmentText}`);
-  // if (result.intent) {
-  //   console.log(`  Intent: ${result.intent.displayName}`);
-  // } else {
-  //   console.log(`  No intent matched.`);
-  // }
+  console.log(`  Query: ${result.queryText}`);
+  console.log(`  Response: ${result.fulfillmentText}`);
+  if (result.intent) {
+    console.log(`  Intent: ${result.intent.displayName}`);
+  } else {
+    console.log(`  No intent matched.`);
+  }
 
   var response = result.fulfillmentText
   return response //response를 리턴. 이게 모듈 전체에서 반환하는 값. 이 모듈 require하는 index.js로 돌아가 해석 마저하기.
