@@ -48,6 +48,3 @@ module.exports = async function runSample(textQuery) { //async await 함수 사�
   var response = result.fulfillmentText
   return response //response를 리턴. 이게 모듈 전체에서 반환하는 값. 이 모듈 require하는 index.js로 돌아가 해석 마저하기.
 }
-
-
-

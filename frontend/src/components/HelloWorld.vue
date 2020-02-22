@@ -112,14 +112,21 @@ export default {
     };
   },
   mounted() {
-    this.$socket.on("receive chat", data => this.feed.push(
-      {
-        id: 1,
-        author: "df봇",
-        contents: data,
-        date: "16:33"
-      }
+    this.$socket.on("receive chat", data => {
+      this.feed.push(
+        {
+          id: 1,
+          author: "df봇",
+          contents: data,
+          date: "16:33"
+        }
       )
+        //답으로 오는 음성을 변수에 저장한 뒤 바로 웹브라우저상에서 플레이
+        // var audio = new Audio( 
+        //   "data:audio/mp3;base64," + response.body.sound
+        // );
+        // audio.play();
+      }
     );
   },
 
