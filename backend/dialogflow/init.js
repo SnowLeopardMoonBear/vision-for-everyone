@@ -12,14 +12,14 @@ module.exports = async function runSample(textQuery) { //async await 함수 사�
   //프로젝트,세션 ID
   const projectId = 'vision-for-everyone-rnddgb'
   const sessionId = '123412342'
-  // 새로운 세션 열기. 인증 정보 포함하는 DF 객체 생성, DF 객체 메서드로 통신 시작
+  //DF 객체 메서드로 세션 열고 통신 시작. 인증정보 담김.
   const sessionClient = new dialogflow.SessionsClient({
     keyFilename: './vision-for-everyone-rnddgb-55a2640e90e8.json'
   });
-  // 빈 쿼리는 받지 않는닷!!
-  if (!textQuery || !textQuery.length) {
+  if (!textQuery || !textQuery.length) { // 빈 쿼리 안 받는 용
     return;
   }
+  
   // sessionClient의 Path 정보를 sessionPath에 넣는다
   const sessionPath = sessionClient.sessionPath(projectId, sessionId);
   // 이런 형식의 JSON으로 df단에 메시지 전송!
