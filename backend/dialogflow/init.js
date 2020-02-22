@@ -1,7 +1,7 @@
 // dialogflow 인증과 세션 시작을 다루는 파일. 엔트리 js 파일인 index.js에서 require.
 
 const dialogflow = require('dialogflow');
-const uuid = require('uuid/v1');
+const uuid = require('uuid');
 
 /**
  * Send a query to the dialogflow agent, and return the query result.
@@ -11,7 +11,7 @@ const uuid = require('uuid/v1');
 module.exports = async function runSample(textQuery) { //async await 함수 사용 모듈. 
   //프로젝트,세션 ID
   const projectId = 'vision-for-everyone-rnddgb'
-  const sessionId = uuid()
+  const sessionId = '123412342'
   // 새로운 세션 열기. 인증 정보 포함하는 DF 객체 생성, DF 객체 메서드로 통신 시작
   const sessionClient = new dialogflow.SessionsClient({
     keyFilename: './vision-for-everyone-rnddgb-55a2640e90e8.json'

@@ -23,13 +23,8 @@
               </template>
 
               <v-card>
-                <v-card-title class="headline grey lighten-2" primary-title>
-                  메뉴
-                </v-card-title>
-
-                <v-card-text>
-                  {{ menu }}
-                </v-card-text>
+                <v-card-title class="headline grey lighten-2" primary-title>메뉴</v-card-title>
+                <v-card-text>{{ menu }}</v-card-text>
 
                 <v-divider></v-divider>
 
@@ -44,7 +39,7 @@
             <!-- 메뉴팝업끝 -->
           </v-col>
           <v-col>
-            <v-dialog v-model="dialog" width="500">
+            <v-dialog v-model="dialog2" width="500">
               <template v-slot:activator="{ on }">
                 <v-btn
                   class="title font-weight-bold"
@@ -60,21 +55,12 @@
               </template>
 
               <v-card>
-                <v-img
-                  class="white--text align-end"
-                  height="200px"
-                  src="http://post.phinf.naver.net/MjAxNjExMTRfOTMg/MDAxNDc5MTE4MzExNDIw.mTReB-n4LOGbzErR8_cdauLuKdfOvt3cddC4bVIB5PYg.wsv4RCyTg-gbH6Lyt4A1-YBbTLfhiEg_liowa3ILN_Mg.JPEG/IzJsshWyG30Xvq-Y5dfmf-73nBLk.jpg"
-                >
                   <v-card-title>신년맞이 이벤트!</v-card-title>
-                </v-img>
-
-                <v-card-text style="font-size:20px;">
-                  {{ event }}
-                </v-card-text>
+                <v-card-text style="font-size:20px;">{{ event }}</v-card-text>
                 <v-divider></v-divider>
                 <v-card-actions>
                   <v-spacer></v-spacer>
-                  <v-btn color="primary" text>
+                  <v-btn color="primary" text @click="dialog2 = false">
                     닫기
                   </v-btn>
                 </v-card-actions>
@@ -106,6 +92,7 @@ export default {
   data: () => {
     return {
       dialog: false,
+      dialog2:false,
       feed: [
         {
           id: 1,
@@ -121,7 +108,7 @@ export default {
       menu: "짜장면: 사천원, 짬뽕: 오천원, 탕수육: 만원",
       event: "앗! 짜장면, 신발보다 싸다!",
       flag: false,
-      chats: []
+      chats: [],
     };
   },
   mounted() {
