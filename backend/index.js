@@ -5,7 +5,7 @@ const path = require('path') //node.js에서 제공하는 파일, 디렉토리 �
 const exphbs = require('express-handlebars') //handlebar 웹 템플릿. vue에서는 불필요하니 modify해야
 const app = express() // express를 저장하는 상수. 이름을 app으로 짓는게 convention인듯.
 const PORT = process.env.PORT || 3000 //포트 열 때 번호 환경변수에서 가져오거나, 그게 없으면 기본으로 3000
-const http = require('http').createServer(express) //우리쪽 서버 만드는 http모듈. express 활용
+const http = require('http').createServer(app) //우리쪽 서버 만드는 http모듈. express 활용
 const io = require('socket.io')(http) // 소켓io. http 서버 만든 걸 붙임. 클라이언트-서버, 서버-DF 양방향 통신
 const diarre = require('./dialogflow/init') // 인증 위한 js 파일을 변수 diarre에 저장.
 
@@ -54,7 +54,8 @@ app.get('/', (req, res, next) => {
 
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`))
-http.listen(5000, function() {
-    console.log('listen on *:5000')
+//app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`))
+
+http.listen(PORT, function() {
+    console.log('listen on *: %s', PORT);
 })
