@@ -33,6 +33,7 @@ io.on('connection', function(socket) {
 });
 app2.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`))
 http.listen(5000, function() {
-    console.log('listen on *:5000')
+    console.log('listen on *:5000');
+    console.log('baba');
 })
 // 일단은 불필요코드 제거 완료

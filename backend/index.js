@@ -9,7 +9,7 @@ const http = require('http').createServer(app) //우리쪽 서버 만드는 http
 const io = require('socket.io')(http) // 소켓io. http 서버 만든 걸 붙임. 클라이언트-서버, 서버-DF 양방향 통신
 const diarre = require('./dialogflow/init') // 인증 위한 js 파일을 변수 diarre에 저장.
 
-// View Engine 프로젝트 구조 관련된 express 세팅. 이해해야 vue로 포팅 가능할듯
+// View Engine 프로젝트 구조 관련된 express 세팅. 토이프로젝트 샘플에서 쓰이는 확장문법이라 안 써도 됨.
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }))
 app.set("view engine", "handlebars")
 
@@ -22,7 +22,7 @@ io.on('connection', function(socket) {
         console.log(arr)
         //console.log('message: ' + msg);
         
-        io.emit('chat message', msg); //io.emit은 뭐냐?
+        io.emit('chat message', msg);
 
         // copy the thing aboeve and emit on chat respond
         diarre(arr).then((dar) => { //arr 값을 init.js에 인자값으로 넘겨준 뒤, async하게 return 받을 값을 기다렸다가, then으로 후속처리. dar는 리턴 받은 값?
@@ -58,4 +58,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 http.listen(PORT, function() {
     console.log('listen on *: %s', PORT);
+    console.log('mod');
+
 })
