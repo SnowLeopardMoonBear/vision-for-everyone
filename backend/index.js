@@ -1,4 +1,4 @@
-// 바로 실행되는 엔트리 파일. 소켓 연결하고 메시지 주고받는 함수가 정의. (vue에서 바로 메인화면 vue파일 script에 로직 적용해버릴까?)
+// df통신 위해 참고한 파일. 소켓 연결하고 메시지 주고받는 함수가 정의. (vue에서 바로 메인화면 vue파일 script에 로직 적용해버릴까?)
 
 const express = require('express') // vue로 옮길 때도 필요. 소켓.io가 express를 요구하기 때문.
 const path = require('path') //node.js에서 제공하는 파일, 디렉토리 다루는 모듈
@@ -58,6 +58,4 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 http.listen(PORT, function() {
     console.log('listen on *: %s', PORT);
-    console.log('mod');
-
 })

@@ -1,4 +1,5 @@
 <template>
+<!-- 최상위 Vue 컴포넌트 -->
   <v-app>
     <v-app-bar app color="green lighten-1" dark>
       <v-btn

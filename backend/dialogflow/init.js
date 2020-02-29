@@ -1,4 +1,4 @@
-// dialogflow 인증과 세션 시작을 다루는 파일. 엔트리 js 파일인 index.js에서 require.
+// dialogflow 인증과 세션 시작을 다루는 파일. 엔트리 js 파일인 app.js에서 require.
 
 const dialogflow = require('dialogflow');
 const uuid = require('uuid');
