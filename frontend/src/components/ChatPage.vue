@@ -111,7 +111,7 @@
       </v-container>
     </v-layout>
     <BasicVueChat  
-      :title="'kiWE'" 
+      :title="'아래는 키위 채팅창입니다'" 
       :new-message="message"
       :initial-feed="feed"
     />

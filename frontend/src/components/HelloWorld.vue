@@ -82,9 +82,25 @@
         </v-row>
       </v-container>
     </v-layout>
-    <BasicVueChat :title="'kiWE'" @newOwnMessage="dfCom" :new-message="message" :initial-feed="feed" />
+    <BasicVueChat :title="'아래는 키위 채팅창입니다'" @newOwnMessage="dfCom" :new-message="message" :initial-feed="feed" />
   </v-container>
 </template>
+
+<style lang="scss">
+.whitetext {
+  color: white;
+}
+
+
+$primary: #00cc33;
+$secondary: #663322;
+$window-height: 50%;
+
+// above the following import you can override default values of variables like $primary
+// @import "node_modules/basic-vue-chat/src/assets/scss/main.scss";
+// 왜 run serve 한 뒤에 import를 주석달았다 해제하면 스타일 반영되지? 그리고 새로고침하면 또 안됨 ㄷ
+// 게다가 오버라이드 반영될 땐 챗 늘수록 계속 길이 늘어남.
+</style>
 
 <script>
 import BasicVueChat from "basic-vue-chat";
@@ -97,8 +113,8 @@ export default {
       feed: [
         {
           id: 1,
-          author: "df봇",
-          contents: "안녕하세요, 함께하는 키오스크 kiWE입니다",
+          author: "키위봇",
+          contents: "안녕하세요, 함께하는 키오스크 키위입니다",
           date: ""
         }
       ],
@@ -117,9 +133,9 @@ export default {
       this.feed.push(
         {
           id: 1,
-          author: "df봇",
+          author: "키위봇",
           contents: data,
-          date: "16:33"
+          date: ""
         }
       )
         //답으로 오는 음성을 변수에 저장한 뒤 바로 웹브라우저상에서 플레이
@@ -140,18 +156,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.whitetext {
-  color: white;
-}
 
-
-$primary: #00cc33;
-$secondary: #663322;
-$window-height: 50%;
-
-// above the following import you can override default values of variables like $primary
-// @import "node_modules/basic-vue-chat/src/assets/scss/main.scss";
-// 왜 run serve 한 뒤에 import를 주석달았다 해제하면 스타일 반영되지? 그리고 새로고침하면 또 안됨 ㄷ
-// 게다가 오버라이드 반영될 땐 챗 늘수록 계속 길이 늘어남.
-</style>

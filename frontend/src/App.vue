@@ -10,7 +10,7 @@
         <span class="mr-2 body-1">홈으로</span>
       </v-btn>
       <v-toolbar-title>
-        <span class="font-weight-bold headline">kiWE</span>
+        <span class="font-weight-bold headline">키위</span>
         <span class="font-weight-light headline"></span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
