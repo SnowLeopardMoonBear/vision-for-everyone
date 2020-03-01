@@ -1,5 +1,6 @@
 <template>
   <v-container class="grey lighten-3" no-gutters>
+    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=no;" /> 
     <v-layout text-center wrap>
       <v-flex xs12> </v-flex>
       <div style="height:3px"></div>
@@ -97,8 +98,8 @@ export default {
         {
           id: 1,
           author: "df봇",
-          contents: "이보시오",
-          date: "16:30"
+          contents: "안녕하세요, 함께하는 키오스크 kiWE입니다",
+          date: ""
         }
       ],
       message: {

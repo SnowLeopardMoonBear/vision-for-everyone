@@ -5,7 +5,7 @@ import io from "socket.io-client";
 import vuetify from './plugins/vuetify';
 
 // 백엔드 URL(5000번 포트)과 소켓을 만들어 연결.(client용 socket.io)
-var socket = io.connect('http://10.64.142.65:3000');
+var socket = io.connect('http://192.168.10.107:3000');
 
 // 소켓을 전역변수 등록해 모든 컴포넌트에서 $socket으로 접근 가능케 함.
 Vue.prototype.$socket = socket;
