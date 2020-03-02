@@ -114,7 +114,7 @@ export default {
         {
           id: 1,
           author: "키위봇",
-          contents: "안녕하세요, 함께하는 키오스크 키위입니다",
+          contents: "안녕하세요, 함께하는 키오스크 키위입니다. 주문을 시작하시려면 안녕이라고 입력한 뒤 리턴 키를 눌러주세요",
           date: ""
         }
       ],
@@ -135,9 +135,12 @@ export default {
           id: 1,
           author: "키위봇",
           contents: data,
-          date: ""
         }
       )
+      var chime = new Audio();
+      chime.src = "./chime.mp3"
+      chime.volume = 100
+      chime.play();
         //답으로 오는 음성을 변수에 저장한 뒤 바로 웹브라우저상에서 플레이
         // var audio = new Audio( 
         //   "data:audio/mp3;base64," + response.body.sound
