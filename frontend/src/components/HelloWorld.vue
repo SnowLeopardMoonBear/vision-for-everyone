@@ -135,6 +135,7 @@ export default {
           id: 1,
           author: "키위봇",
           contents: data,
+          date: ""
         }
       )
       var chime = new Audio();
